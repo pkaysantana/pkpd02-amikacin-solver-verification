@@ -6,7 +6,7 @@
 
 PKPD-02 is a pre-specified, exploratory plan to ask whether the structure of a population pharmacokinetic (PopPK) model, one compartment or two, changes how reliable the **90 % posterior predictive interval** is for a *future* amikacin concentration in therapeutic drug monitoring (TDM). Before any real forecasting is allowed, the numerical machinery (ODE solving, infusion and covariate handling, patient-level event construction) has to be shown correct. This repository holds that verification work, the protocol it implements, and the evidence behind each result, including a gate that **failed** and was fixed in the open.
 
-Independent research project by Don Aborah ([@pkaysantana](https://github.com/pkaysantana)), developed with substantial assistance from AI coding assistants (Claude Code and Devin); see [Authorship, AI assistance and provenance](#authorship-ai-assistance-and-provenance).
+Independent research project by Don Aborah ([@pkaysantana](https://github.com/pkaysantana)), developed with substantial assistance from AI coding assistants (Codex, Claude Code and Devin); see [Authorship, AI assistance and provenance](#authorship-ai-assistance-and-provenance).
 
 | | |
 |---|---|
@@ -154,7 +154,7 @@ Why not run the scripts directly? They write evidence in place. Running `tests/s
 
 ### Authorship, AI assistance and provenance
 
-This is an independently directed research project by Don Aborah, developed with substantial assistance from AI coding assistants: Anthropic's Claude Code, and Devin (an AI software-engineering agent, used for audit and reconciliation work). Three things are kept distinct:
+This is an independently directed research project by Don Aborah, developed with substantial assistance from AI coding assistants: OpenAI's Codex, Anthropic's Claude Code, and Cognition's Devin. Three things are kept distinct:
 
 | | What this release says |
 |---|---|
