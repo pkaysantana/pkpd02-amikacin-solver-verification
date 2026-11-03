@@ -1,0 +1,438 @@
+{
+  "inspection": "S-2 static fit-schema inspection",
+  "timestamp_utc": "2026-10-30 21:30:39 UTC",
+  "fitting_performed": false,
+  "versions": {
+    "rxode2": "5.1.8",
+    "nlmixr2est": "7.2.1",
+    "nlmixr2": "7.0.1",
+    "lotri": "1.0.5",
+    "rxode2lincmt": "0.1.0",
+    "n1qn1": "6.0.1.14",
+    "lbfgsb3c": "2026.3.5"
+  },
+  "control_interface": {
+    "n_formals": 181,
+    "covMethod_choices": ["r,s", "analytic", "r", "s", "sa", "imp", ""],
+    "covMethod_default": "r,s",
+    "sensMethod_choices": ["default", "forward"],
+    "derivMethod_choices": ["switch", "forward", "central"],
+    "covDerivMethod_choices": ["central", "forward"],
+    "diagXform_choices": ["sqrt", "log", "identity"],
+    "diagXform_default": "sqrt",
+    "scaleType_choices": ["nlmixr2", "norm", "mult", "multAdd"],
+    "boundTol_default": 0.05,
+    "interaction_default": 1,
+    "addProp_choices": ["combined2", "combined1"],
+    "addProp_default": "combined2",
+    "covFallback_default": ["list(`r,s` = c(\"r\", \"s\"), r = \"s\", s = character(0), analytic = c(\"r,s\", ", "    \"r\", \"s\"))"],
+    "covFallback_list_accepted": true,
+    "covFallback_stored_when_empty_list": "list()",
+    "covTryHarder_default": 0,
+    "covFull_default": true,
+    "covShortcut_default": false,
+    "sigdig_default": 3,
+    "outerOpt_default_internal_code": -1,
+    "innerOpt_default_internal_code": 4,
+    "outerOpt_choices": ["bobyqa", "nlminb", "lbfgsb3c", "L-BFGS-B", "mma", "lbfgsbLG", "slsqp", "uobyqa", "newuoa", "trust"],
+    "innerOpt_choices": ["auto", "trust", "n1qn1", "lbfgsb3c"],
+    "literalFix_default": true,
+    "maxOdeRecalc_default": 5,
+    "odeRecalcFactor_default": 3.16227766016838,
+    "tolerance_routes": {
+      "top_level_atol_argument_accepted": false,
+      "via_rxControl_accepted": true,
+      "stored_when_set_via_rxControl": [1e-10, 1e-10, 1e-09, 1e-09, 1]
+    },
+    "nlmixr2_default_rxControl": {
+      "atol": 1e-06,
+      "rtol": 0.001,
+      "atolSens": 1e-06,
+      "rtolSens": 0.001,
+      "maxsteps": 500000,
+      "method": 2,
+      "covsInterpolation": 1
+    },
+    "covsInterpolation_default_code_1_is_locf": true
+  },
+  "parameter_coordinates": {
+    "1c": [
+      {
+        "ntheta": 1,
+        "neta1": null,
+        "name": "tcl",
+        "est": 1.38629436111989,
+        "lower": -0.693147180559945,
+        "upper": 3.91202300542815,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": "THETA[1]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 2,
+        "neta1": null,
+        "name": "tv",
+        "est": 2.89037175789616,
+        "lower": 0.693147180559945,
+        "upper": 5.29831736654804,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": "THETA[2]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 3,
+        "neta1": null,
+        "name": "add.sd",
+        "est": 0.5,
+        "lower": 0.001,
+        "upper": 20,
+        "fix": false,
+        "err": "add",
+        "THETA_index_in_compiled_models": "THETA[3]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 4,
+        "neta1": null,
+        "name": "prop.sd",
+        "est": 0.1,
+        "lower": 0.001,
+        "upper": 2,
+        "fix": false,
+        "err": "prop",
+        "THETA_index_in_compiled_models": "THETA[4]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": null,
+        "neta1": 1,
+        "name": "eta.cl",
+        "est": 0.09,
+        "lower": null,
+        "upper": null,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": null,
+        "ETA_index_in_compiled_models": "ETA[1]"
+      },
+      {
+        "ntheta": null,
+        "neta1": 2,
+        "name": "eta.v",
+        "est": 0.09,
+        "lower": null,
+        "upper": null,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": null,
+        "ETA_index_in_compiled_models": "ETA[2]"
+      }
+    ],
+    "2c": [
+      {
+        "ntheta": 1,
+        "neta1": null,
+        "name": "tcl",
+        "est": 1.38629436111989,
+        "lower": -0.693147180559945,
+        "upper": 3.91202300542815,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": "THETA[1]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 2,
+        "neta1": null,
+        "name": "tv1",
+        "est": 2.63905732961526,
+        "lower": 0.693147180559945,
+        "upper": 5.29831736654804,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": "THETA[2]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 3,
+        "neta1": null,
+        "name": "tq",
+        "est": 1.09861228866811,
+        "lower": -4.60517018598809,
+        "upper": 4.60517018598809,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": "THETA[3]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 4,
+        "neta1": null,
+        "name": "tv2",
+        "est": 2.19722457733622,
+        "lower": -0.693147180559945,
+        "upper": 6.21460809842219,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": "THETA[4]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 5,
+        "neta1": null,
+        "name": "add.sd",
+        "est": 0.5,
+        "lower": 0.001,
+        "upper": 20,
+        "fix": false,
+        "err": "add",
+        "THETA_index_in_compiled_models": "THETA[5]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": 6,
+        "neta1": null,
+        "name": "prop.sd",
+        "est": 0.1,
+        "lower": 0.001,
+        "upper": 2,
+        "fix": false,
+        "err": "prop",
+        "THETA_index_in_compiled_models": "THETA[6]",
+        "ETA_index_in_compiled_models": null
+      },
+      {
+        "ntheta": null,
+        "neta1": 1,
+        "name": "eta.cl",
+        "est": 0.09,
+        "lower": null,
+        "upper": null,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": null,
+        "ETA_index_in_compiled_models": "ETA[1]"
+      },
+      {
+        "ntheta": null,
+        "neta1": 2,
+        "name": "eta.v1",
+        "est": 0.09,
+        "lower": null,
+        "upper": null,
+        "fix": false,
+        "err": null,
+        "THETA_index_in_compiled_models": null,
+        "ETA_index_in_compiled_models": "ETA[2]"
+      }
+    ],
+    "notes": ["Fixed effects are typical values on the LOG scale (tcl, tv, tq, tv2); v1.1 physical bounds are encoded as log-scale lower/upper (accepted by ini()).", "Residual SDs add.sd/prop.sd are on the natural scale with positive bounds; Omega is declared as variances (eta ~ 0.09).", "foceiControl diagXform = 'sqrt' means Omega diagonals are optimised on an SD-like (sqrt) coordinate; whether the RETURNED covariance is in that coordinate or on the variance scale is UNVERIFIED until a fit object exists.", "boundTol default 0.05 is an ESTIMATION-scale distance; v1.1 C8 requires >0.05 on the estimation log scale: map must be confirmed from the fit object (UNVERIFIED).", "Rendering of 'additive SD >= 0.05 mg/L' and 'proportional SD >= 0.02' (C8) needs the natural-scale residual SDs, available from the declared coordinates (verified) but their returned-covariance coordinate is UNVERIFIED."]
+  },
+  "compiled_models": {
+    "1c": {
+      "inner": {
+        "states": ["Ac", "rx__sens_Ac_BY_ETA_1___", "rx__sens_Ac_BY_ETA_2___"],
+        "n_states": 3,
+        "n_sensitivity_states": 2,
+        "params": ["THETA[1]", "THETA[2]", "THETA[3]", "THETA[4]", "ETA[1]", "ETA[2]", "CRCA", "AJBW"],
+        "linCmt_flag": -100,
+        "contains_linCmt_text": false
+      },
+      "predOnly": {
+        "states": "Ac",
+        "n_states": 1,
+        "n_sensitivity_states": 0,
+        "params": ["THETA[1]", "THETA[2]", "THETA[3]", "THETA[4]", "ETA[1]", "ETA[2]", "CRCA", "AJBW"],
+        "linCmt_flag": -100,
+        "contains_linCmt_text": false
+      },
+      "predNoLhs": {
+        "states": "Ac",
+        "n_states": 1,
+        "n_sensitivity_states": 0,
+        "params": ["THETA[1]", "THETA[2]", "THETA[3]", "THETA[4]", "ETA[1]", "ETA[2]", "CRCA", "AJBW"],
+        "linCmt_flag": -100,
+        "contains_linCmt_text": false
+      }
+    },
+    "2c": {
+      "inner": {
+        "states": ["Ac", "Ap", "rx__sens_Ac_BY_ETA_1___", "rx__sens_Ap_BY_ETA_1___", "rx__sens_Ac_BY_ETA_2___", "rx__sens_Ap_BY_ETA_2___"],
+        "n_states": 6,
+        "n_sensitivity_states": 4,
+        "params": ["THETA[1]", "THETA[2]", "THETA[3]", "THETA[4]", "THETA[5]", "THETA[6]", "ETA[1]", "ETA[2]", "CRCA", "AJBW"],
+        "linCmt_flag": -100,
+        "contains_linCmt_text": false
+      },
+      "predOnly": {
+        "states": ["Ac", "Ap"],
+        "n_states": 2,
+        "n_sensitivity_states": 0,
+        "params": ["THETA[1]", "THETA[2]", "THETA[3]", "THETA[4]", "THETA[5]", "THETA[6]", "ETA[1]", "ETA[2]", "CRCA", "AJBW"],
+        "linCmt_flag": -100,
+        "contains_linCmt_text": false
+      },
+      "predNoLhs": {
+        "states": ["Ac", "Ap"],
+        "n_states": 2,
+        "n_sensitivity_states": 0,
+        "params": ["THETA[1]", "THETA[2]", "THETA[3]", "THETA[4]", "THETA[5]", "THETA[6]", "ETA[1]", "ETA[2]", "CRCA", "AJBW"],
+        "linCmt_flag": -100,
+        "contains_linCmt_text": false
+      }
+    }
+  },
+  "fit_object_accessors_installed": ["atol", "coefficients", "condition", "control", "cor", "covLvl", "covsInterpolation", "dataNormInfo", "dataSav", "default", "env", "estimationModel", "eta", "etaMat", "finalUi", "finalUiEnv", "foceiControl", "foceiThetaEtaParameters", "hini", "hmax", "hmin", "idLvl", "iniDf0", "iniUi", "innerModel", "innerModelForce", "ipredModel", "maxordn", "maxords", "maxstepsOde", "md5", "methodOde", "mixList", "mixNum", "modelName", "notes", "omegaR", "parHist", "parHistStacked", "phiCI", "phiR", "phiRSE", "phiSE", "predOnlyModel", "ranef", "rtol", "rxControl", "rxControlWithVar", "saem", "saemCfg", "saemDopredIpred", "saemDopredPred", "saemEvt", "saemEvtDf", "saemEvtM", "saemEvtMDf", "saemNmc", "seed", "sigma", "simInfo", "simulationModel", "ui", "uiIni", "warnings"],
+  "accessor_presence": {
+    "atol": true,
+    "rtol": true,
+    "covsInterpolation": true,
+    "control": true,
+    "cov": false,
+    "covMethod": false,
+    "omega": false,
+    "omegaR": true,
+    "theta": false,
+    "eta": true,
+    "etaMat": true,
+    "objf": false,
+    "objective": false,
+    "parFixed": false,
+    "parFixedDf": false,
+    "sigma": true,
+    "message": false,
+    "scaleInfo": false,
+    "dataSav": true,
+    "ui": true,
+    "iniUi": true,
+    "covLvl": true,
+    "fixef": false,
+    "seed": true,
+    "time": false,
+    "condition": true,
+    "cor": true,
+    "coefficients": true
+  },
+  "accessor_presence_note": "TRUE = a dedicated nmObjGet.<name> method exists. FALSE does NOT mean the field is absent from a fit object (e.g. fit$cov, fit$objf are data elements, not accessor methods); their names/coordinates are UNVERIFIED until a synthetic fit object is inspected.",
+  "generics_present": {
+    "vcov": true,
+    "getVarCov": true,
+    "coef": true
+  },
+  "extraction_map": [
+    {
+      "criterion": "L9/S-1r: solver pathway, LOCF, tolerances in effect",
+      "candidate_source": "fit$atol / fit$rtol / fit$covsInterpolation accessors (present) + rxModelVars of the stored model for linCmt flag",
+      "status": "PARTIALLY VERIFIED (accessors exist; values unverified)"
+    },
+    {
+      "criterion": "C1: optimiser success code, boundary warnings",
+      "candidate_source": "fit$message / optimiser return code in control+env (field names UNVERIFIED)",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "C4: named, positive-definite covariance with verified r,s method and NO fallback",
+      "candidate_source": "fit$cov + fit$covMethod (names UNVERIFIED); control covFallback=list() to forbid fallback",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "C5/C6: structural log-parameter correlation block",
+      "candidate_source": "named submatrix of fit$cov (UNVERIFIED coordinates)",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "C7: log-scale SEs (CL, V; Q, V2) and residual-SD RSE",
+      "candidate_source": "fit$cov diagonal / parFixedDf (UNVERIFIED)",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "C8: distance from bounds (estimation log scale), SD floors",
+      "candidate_source": "fit$ui$iniDf bounds + boundTol; returned estimates in log scale (UNVERIFIED mapping)",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "C9: IIV variances >= 0.001",
+      "candidate_source": "fit$omega (variance scale expected; UNVERIFIED)",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "U2: Sigma_z -> xi Jacobian, named block",
+      "candidate_source": "needs coordinate documentation of fit$cov (sqrt/log xform of Omega, SD of sigma): UNVERIFIED",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    },
+    {
+      "criterion": "Reproducibility: seed / control used",
+      "candidate_source": "fit$control / seed accessors (present)",
+      "status": "UNVERIFIED until a synthetic fit object exists"
+    }
+  ],
+  "pilot_sensitivity_accuracy_nonfit": {
+    "table": [
+      {
+        "config": "nlmixr2_defaults",
+        "atol": 1e-06,
+        "rtol": 0.001,
+        "atolSens": 1e-06,
+        "rtolSens": 0.001,
+        "rows": 915,
+        "patients": 32,
+        "median_solve_seconds": 0.00700000000000056,
+        "max_scaled_err_dAc_dEta1": 0.00313380805349171,
+        "max_scaled_err_dAc_dEta2": 0.00313380807187658
+      },
+      {
+        "config": "state_1e-10_sens_defaults",
+        "atol": 1e-10,
+        "rtol": 1e-10,
+        "atolSens": 1e-06,
+        "rtolSens": 0.001,
+        "rows": 915,
+        "patients": 32,
+        "median_solve_seconds": 0.0139999999999993,
+        "max_scaled_err_dAc_dEta1": 1.88468448580448e-07,
+        "max_scaled_err_dAc_dEta2": 1.88468448580448e-07
+      },
+      {
+        "config": "all_1e-8",
+        "atol": 1e-08,
+        "rtol": 1e-08,
+        "atolSens": 1e-08,
+        "rtolSens": 1e-08,
+        "rows": 915,
+        "patients": 32,
+        "median_solve_seconds": 0.0109999999999992,
+        "max_scaled_err_dAc_dEta1": 1.79679179932761e-07,
+        "max_scaled_err_dAc_dEta2": 1.79679179932761e-07
+      },
+      {
+        "config": "all_1e-10",
+        "atol": 1e-10,
+        "rtol": 1e-10,
+        "atolSens": 1e-10,
+        "rtolSens": 1e-10,
+        "rows": 915,
+        "patients": 32,
+        "median_solve_seconds": 0.0139999999999993,
+        "max_scaled_err_dAc_dEta1": 1.88468448580448e-07,
+        "max_scaled_err_dAc_dEta2": 1.88468448580448e-07
+      },
+      {
+        "config": "all_1e-12",
+        "atol": 1e-12,
+        "rtol": 1e-12,
+        "atolSens": 1e-12,
+        "rtolSens": 1e-12,
+        "rows": 915,
+        "patients": 32,
+        "median_solve_seconds": 0.016,
+        "max_scaled_err_dAc_dEta1": 1.8852574860444e-07,
+        "max_scaled_err_dAc_dEta2": 1.8852574860444e-07
+      }
+    ],
+    "reference": "central finite difference (h=1e-5) of the independent matrix-exponential reference; its own noise floor is ~2e-7 (scaled), so errors at/below that cannot be resolved",
+    "note": "Solve of the compiled inner model on 32 archived synthetic patients (915 rows). Not an estimation run; solve cost is per function evaluation only."
+  },
+  "blockers_found_statically": ["covariance coordinates for Omega/sigma/bounded parameters in the returned fit object are undocumented here (need a synthetic fit to read them)", "automatic covariance fallback chain r,s -> r -> s is the DEFAULT; C4 forbids undocumented fallback (covFallback = list() accepted by the control, effect on a fit UNVERIFIED)", "nlmixr2 default ODE/sensitivity tolerances (1e-6/1e-3) fail the S-1 rule and give ~3e-3 sensitivity errors; must be overridden via rxControl=", "tolerances cannot be passed as top-level foceiControl arguments (rejected); only via rxControl=", "no way to verify estimation convergence behaviour, runtime of full FOCEI, or multi-start stability without a (not yet approved) synthetic fit"]
+}

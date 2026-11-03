@@ -1,0 +1,5 @@
+"model","comparison","n_points","max_abs_diff","n_exceeding_gate"
+"1c","P1_plain_rxode2_ODE vs P2_nlmixr2_ui_ODE",3333,4.75068873129203e-10,0
+"1c","P1_plain_rxode2_ODE vs P3_nlmixr2_focei_predOnly_ODE",3333,4.42284431301232e-10,0
+"2c","P1_plain_rxode2_ODE vs P2_nlmixr2_ui_ODE",3333,4.74415173812304e-10,0
+"2c","P1_plain_rxode2_ODE vs P3_nlmixr2_focei_predOnly_ODE",3333,5.27094812241558e-10,0

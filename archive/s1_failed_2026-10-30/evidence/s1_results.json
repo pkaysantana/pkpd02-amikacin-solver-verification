@@ -1,0 +1,326 @@
+{
+  "gate": "S-1",
+  "verdict": "FAIL",
+  "synthetic_data_only": true,
+  "timestamp_utc": "2026-10-30 19:27:54 UTC",
+  "spec": ["PKPD02_PreSpecified_Exploratory_Protocol_v0_9.md", "PKPD02_v11_addendum.md s3 (S-1)"],
+  "protocol_sha256": {
+    "protocol": "41153a5007547ae00938229d1b3acd9c140b6d82973ba6b62b74b41a68536920",
+    "addendum": "10afc03f2321990cd24541d792517ad83072d9b476bec76caba57c707fc720e8"
+  },
+  "renv_lock_sha256": "c2fc9a550b41b6d7c086a0baed348147716ec0842f9f12bf283a1c4552ab0160",
+  "seed": {
+    "value": 20261101,
+    "rng": ["Mersenne-Twister", "Inversion", "Rejection"],
+    "note": "implementer-chosen S-1 scenario seed; protocol assigns none for S-1"
+  },
+  "tolerances": {
+    "abs_mg_per_L": 1e-05,
+    "rel": 1e-06,
+    "rule": "|C_lin - C_ode| <= max(abs, rel*|C_ode|)",
+    "ode_atol": 1e-12,
+    "ode_rtol": 1e-12,
+    "ode_method": "liblsoda",
+    "covsInterpolation": "locf",
+    "eps_before_after_h": 0.001
+  },
+  "synthetic_parameters": {
+    "1c": [4, 18],
+    "2c": [4, 14, 3, 9]
+  },
+  "n_random_patients": 100,
+  "n_cases": 102,
+  "gating_checks": {
+    "linCmt_vs_ODE_all_points": false,
+    "ODE_vs_independent_reference_all_points": true,
+    "step_amount_continuity": false,
+    "scenario_coverage_a_to_g": true,
+    "no_NA_comparisons": true
+  },
+  "by_model_all_cases": [
+    {
+      "model": "1c",
+      "n_points": 3177,
+      "n_fail": 2530,
+      "n_ref_fail": 0,
+      "max_abs_err": 0.0399760487542835,
+      "max_rel_err": 0.000637014009278524,
+      "max_ode_vs_ref_abs": 1.40100553380762e-09,
+      "max_lin_vs_ref_abs": 0.0399760488090379,
+      "n_na": 0,
+      "_row": "1c"
+    },
+    {
+      "model": "2c",
+      "n_points": 3177,
+      "n_fail": 2533,
+      "n_ref_fail": 0,
+      "max_abs_err": 0.0456831007491303,
+      "max_rel_err": 0.000699845336211576,
+      "max_ode_vs_ref_abs": 4.74699390906608e-10,
+      "max_lin_vs_ref_abs": 0.045683100803501,
+      "n_na": 0,
+      "_row": "2c"
+    }
+  ],
+  "by_model_canonical_only": [
+    {
+      "model": "1c",
+      "n_points": 64,
+      "n_fail": 42,
+      "n_ref_fail": 0,
+      "max_abs_err": 0.00827894974337084,
+      "max_rel_err": 0.000221485141446749,
+      "max_ode_vs_ref_abs": 2.14903650430642e-10,
+      "max_lin_vs_ref_abs": 0.0082789499582745,
+      "n_na": 0,
+      "_row": "1c"
+    },
+    {
+      "model": "2c",
+      "n_points": 64,
+      "n_fail": 42,
+      "n_ref_fail": 0,
+      "max_abs_err": 0.0130144429872914,
+      "max_rel_err": 0.000360089114443518,
+      "max_ode_vs_ref_abs": 9.06812402945434e-11,
+      "max_lin_vs_ref_abs": 0.0130144430217882,
+      "n_na": 0,
+      "_row": "2c"
+    }
+  ],
+  "n_failing_points": 5063,
+  "failing_cases": ["canonical_tie_sample_first", "canonical_tie_dose_first", "random_001", "random_002", "random_003", "random_004", "random_005", "random_006", "random_007", "random_008", "random_009", "random_010", "random_011", "random_012", "random_013", "random_014", "random_015", "random_016", "random_017", "random_018", "random_019", "random_020", "random_021", "random_022", "random_023", "random_024", "random_025", "random_026", "random_027", "random_028", "random_029", "random_030", "random_031", "random_032", "random_033", "random_034", "random_035", "random_036", "random_037", "random_038", "random_039", "random_040", "random_041", "random_042", "random_043", "random_044", "random_045", "random_046", "random_047", "random_048", "random_049", "random_050", "random_051", "random_052", "random_053", "random_054", "random_055", "random_056", "random_057", "random_058", "random_059", "random_060", "random_061", "random_062", "random_063", "random_064", "random_065", "random_066", "random_067", "random_068", "random_069", "random_070", "random_071", "random_072", "random_073", "random_074", "random_075", "random_076", "random_077", "random_078", "random_079", "random_080", "random_081", "random_082", "random_083", "random_084", "random_085", "random_086", "random_087", "random_088", "random_089", "random_090", "random_091", "random_092", "random_093", "random_094", "random_095", "random_096", "random_097", "random_098", "random_099", "random_100"],
+  "step_checks": {
+    "n": 852,
+    "n_fail": 845,
+    "max_amount_abs_diff_lin_vs_ref_mg": 0.529319776066814,
+    "max_amount_abs_diff_ode_vs_ref_mg": 2.20745732804062e-08,
+    "n_steps_during_active_infusion": 422
+  },
+  "negative_controls_nocb": [
+    {
+      "model": "1c",
+      "max_abs_lin_nocb_vs_locf": 0,
+      "max_abs_ode_nocb_vs_locf": 0.0399760486498764,
+      "n_points_exceeding_tol_lin_nocb": 2530,
+      "n_points_exceeding_tol_ode_nocb": 2530,
+      "_row": "1c"
+    },
+    {
+      "model": "2c",
+      "max_abs_lin_nocb_vs_locf": 0,
+      "max_abs_ode_nocb_vs_locf": 0.0456831008935836,
+      "n_points_exceeding_tol_lin_nocb": 2533,
+      "n_points_exceeding_tol_ode_nocb": 2533,
+      "_row": "2c"
+    }
+  ],
+  "ode_solver_sensitivity": [
+    {
+      "model": "1c",
+      "ode_config": "liblsoda-default-tol",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 0.000450333116248203,
+      "max_abs_ode_vs_lin": 0.0401743554843108,
+      "n_exceeding_gate_vs_ref": 1520,
+      "_row": "1c.1"
+    },
+    {
+      "model": "1c",
+      "ode_config": "lsoda-1e-12",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 5.74644332118623e-10,
+      "max_abs_ode_vs_lin": 0.0399760486347844,
+      "n_exceeding_gate_vs_ref": 0,
+      "_row": "1c.2"
+    },
+    {
+      "model": "1c",
+      "ode_config": "dop853-1e-12",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 1.77166725734423e-10,
+      "max_abs_ode_vs_lin": 0.0399760487442364,
+      "n_exceeding_gate_vs_ref": 0,
+      "_row": "1c.3"
+    },
+    {
+      "model": "1c",
+      "ode_config": "liblsoda-1e-12",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 1.40100553380762e-09,
+      "max_abs_ode_vs_lin": 0.0399760487542835,
+      "n_exceeding_gate_vs_ref": 0,
+      "_row": "1c.4"
+    },
+    {
+      "model": "2c",
+      "ode_config": "liblsoda-default-tol",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 0.000308681099923547,
+      "max_abs_ode_vs_lin": 0.0455930340373527,
+      "n_exceeding_gate_vs_ref": 816,
+      "_row": "2c.1"
+    },
+    {
+      "model": "2c",
+      "ode_config": "lsoda-1e-12",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 4.74699390906608e-10,
+      "max_abs_ode_vs_lin": 0.0456831007336405,
+      "n_exceeding_gate_vs_ref": 0,
+      "_row": "2c.2"
+    },
+    {
+      "model": "2c",
+      "ode_config": "dop853-1e-12",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 2.01850980374729e-10,
+      "max_abs_ode_vs_lin": 0.0456831008039984,
+      "n_exceeding_gate_vs_ref": 0,
+      "_row": "2c.3"
+    },
+    {
+      "model": "2c",
+      "ode_config": "liblsoda-1e-12",
+      "status": "ok",
+      "max_abs_ode_vs_ref": 4.74699390906608e-10,
+      "max_abs_ode_vs_lin": 0.0456831007491303,
+      "n_exceeding_gate_vs_ref": 0,
+      "_row": "2c.4"
+    }
+  ],
+  "interpolation_semantics_diagnostic_nongating": [
+    {
+      "model": "1c",
+      "n_points_before_first_cov_change": 398,
+      "n_points_at_or_after": 2779,
+      "n_gate_fail_before_first_change": 0,
+      "n_gate_fail_at_or_after": 2530,
+      "max_abs_lin_vs_ref_LOCF": 0.0399760488090379,
+      "max_abs_lin_vs_ref_NOCB": 3.01838554150891e-11,
+      "max_abs_ode_locf_vs_ref_LOCF": 1.40100553380762e-09,
+      "max_abs_ode_nocb_vs_ref_NOCB": 5.66018343306496e-10,
+      "max_abs_lin_nonmemTRUE_vs_default": 0,
+      "n_lin_pts_within_gate_of_NOCB_ref": 3177,
+      "n_points": 3177,
+      "_row": "1c"
+    },
+    {
+      "model": "2c",
+      "n_points_before_first_cov_change": 398,
+      "n_points_at_or_after": 2779,
+      "n_gate_fail_before_first_change": 0,
+      "n_gate_fail_at_or_after": 2533,
+      "max_abs_lin_vs_ref_LOCF": 0.045683100803501,
+      "max_abs_lin_vs_ref_NOCB": 1.51629819811205e-11,
+      "max_abs_ode_locf_vs_ref_LOCF": 4.74699390906608e-10,
+      "max_abs_ode_nocb_vs_ref_NOCB": 4.67721861241444e-10,
+      "max_abs_lin_nonmemTRUE_vs_default": 0,
+      "n_lin_pts_within_gate_of_NOCB_ref": 3177,
+      "n_points": 3177,
+      "_row": "2c"
+    }
+  ],
+  "package_versions": {
+    "rxode2": "5.1.8",
+    "nlmixr2est": "7.2.1",
+    "nlmixr2": "7.0.1",
+    "lotri": "1.0.5",
+    "dparser": "1.3.1.14",
+    "rxode2lincmt": "0.1.0",
+    "symengine": "0.2.14",
+    "PreciseSums": "0.7",
+    "n1qn1": "6.0.1.14",
+    "lbfgsb3c": "2026.3.5"
+  },
+  "renv_lock_entries": {
+    "rxode2": {
+      "version": "5.1.8",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "nlmixr2est": {
+      "version": "7.2.1",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "nlmixr2": {
+      "version": "7.0.1",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "lotri": {
+      "version": "1.0.5",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "dparser": {
+      "version": "1.3.1-14",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "rxode2lincmt": {
+      "version": "0.1.0",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "symengine": {
+      "version": "0.2.14",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "PreciseSums": {
+      "version": "0.7",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "n1qn1": {
+      "version": "6.0.1-14",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    },
+    "lbfgsb3c": {
+      "version": "2026-3.5",
+      "source": "Repository",
+      "repository": "CRAN",
+      "hash": {},
+      "remote_sha": {}
+    }
+  },
+  "rxControl_codes": {
+    "covsInterpolation": {
+      "locf.locf": 1,
+      "nocb.nocb": 2
+    },
+    "method": {
+      "liblsoda.liblsoda": 2,
+      "lsoda.lsoda": 1,
+      "dop853.dop853": 0
+    },
+    "default_covsInterpolation": 1,
+    "default_atol": 1e-08,
+    "default_rtol": 1e-06,
+    "default_method": 2
+  },
+  "R_version": "R version 4.5.2 (2025-10-31)",
+  "platform": "x86_64-pc-linux-gnu"
+}

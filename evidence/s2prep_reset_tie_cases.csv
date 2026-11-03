@@ -1,0 +1,8 @@
+"case","expected","classified","classification_ok","placement_ok","value_ok","abs_err","quarantined"
+"pre_before_reset_TAD_pos","pre_reset","pre_reset",TRUE,TRUE,TRUE,3.07061043258727e-11,FALSE
+"post_after_reset_TAD_zero","post_reset","post_reset",TRUE,TRUE,TRUE,0,FALSE
+"indet_before_reset_TAD_zero","indeterminate","indeterminate",TRUE,TRUE,TRUE,NA,TRUE
+"indet_after_reset_TAD_pos","indeterminate","indeterminate",TRUE,TRUE,TRUE,NA,TRUE
+"indet_TAD_missing","indeterminate","indeterminate",TRUE,TRUE,TRUE,NA,TRUE
+"pre_before_EVID3_TAD_pos","pre_reset","pre_reset",TRUE,TRUE,TRUE,3.07061043258727e-11,FALSE
+"post_after_EVID3_TAD_zero","post_reset","post_reset",TRUE,TRUE,TRUE,0,FALSE

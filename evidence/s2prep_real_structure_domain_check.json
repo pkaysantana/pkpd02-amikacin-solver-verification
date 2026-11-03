@@ -1,0 +1,90 @@
+{
+  "test": "s2prep_real_structure_domain_check",
+  "verdict": "PASS",
+  "scope": "real event STRUCTURE with SYNTHETIC parameters/etas; no DV read; no fitting; aggregate output only",
+  "seed": 20261104,
+  "source_audit_trail": {
+    "source_file": "Amikacin_Data_File.xlsx",
+    "sha256": "521daef9e7d753419006259ed15e3ac4f26a1345c290c79c1cacf42e11c767cb",
+    "sha256_matches_protocol": true,
+    "columns_loaded": ["#ID", "TIME", "TAD", "EVID", "AMT", "RATE", "AJBW", "CRCA"],
+    "DV_column_loaded": false,
+    "other_columns_skipped_at_read": ["DV", "SEX", "AGE", "WT", "IBW", "HT", "SCREAT", "CRCL"],
+    "n_rows_loaded": 2308,
+    "nonnumeric_token_counts": {
+      "#ID": 0,
+      "TIME": 0,
+      "TAD": 0,
+      "EVID": 0,
+      "AMT": 0,
+      "RATE": 0,
+      "AJBW": 0,
+      "CRCA": 0
+    },
+    "statement": "No concentration (DV) value was read, printed, summarised or used; no model was fitted; no forecast target was constructed."
+  },
+  "n_patients": 124,
+  "n_episodes": 148,
+  "n_event_rows": 2308,
+  "canonicalisation_inserted_rows": 2,
+  "results": [
+    {
+      "model": "1c",
+      "route": "episode_timelines_P1_atol1e-12",
+      "n_rows": 2310,
+      "n_fail": 0,
+      "max_abs_err_mg_per_L": 3.94820176552457e-10,
+      "n_ref_below_1e3": 729,
+      "max_rel_err_where_ref_ge_1e3": 5.86035593529401e-11
+    },
+    {
+      "model": "1c",
+      "route": "episode_timelines_P3_predOnly_atol1e-10",
+      "n_rows": 2310,
+      "n_fail": 0,
+      "max_abs_err_mg_per_L": 2.16419948628754e-08,
+      "n_ref_below_1e3": 729,
+      "max_rel_err_where_ref_ge_1e3": 5.85928479851358e-09
+    },
+    {
+      "model": "1c",
+      "route": "patient_level_offset_table_P1_atol1e-12",
+      "n_rows": 2334,
+      "n_fail": 0,
+      "max_abs_err_mg_per_L": 7.62270246923435e-10,
+      "n_ref_below_1e3": 753,
+      "max_rel_err_where_ref_ge_1e3": 5.86035593529401e-11
+    },
+    {
+      "model": "2c",
+      "route": "episode_timelines_P1_atol1e-12",
+      "n_rows": 2310,
+      "n_fail": 0,
+      "max_abs_err_mg_per_L": 3.69766439689556e-10,
+      "n_ref_below_1e3": 359,
+      "max_rel_err_where_ref_ge_1e3": 8.76869827738652e-11
+    },
+    {
+      "model": "2c",
+      "route": "episode_timelines_P3_predOnly_atol1e-10",
+      "n_rows": 2310,
+      "n_fail": 0,
+      "max_abs_err_mg_per_L": 9.68162083836432e-09,
+      "n_ref_below_1e3": 359,
+      "max_rel_err_where_ref_ge_1e3": 8.99045221203333e-09
+    },
+    {
+      "model": "2c",
+      "route": "patient_level_offset_table_P1_atol1e-12",
+      "n_rows": 2334,
+      "n_fail": 0,
+      "max_abs_err_mg_per_L": 4.68993732738454e-10,
+      "n_ref_below_1e3": 383,
+      "max_rel_err_where_ref_ge_1e3": 8.76869827738652e-11
+    }
+  ],
+  "pre_validated": {
+    "episode_timelines_pass_validator": true,
+    "patient_level_offset_table_pass_validator": true
+  }
+}

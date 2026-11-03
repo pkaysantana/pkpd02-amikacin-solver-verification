@@ -1,0 +1,5 @@
+"battery","model","n_rows","n_patients","n_fail","max_abs_err","max_rel_err","min_Ac_ode"
+"A_obs_only_covariate_changes","1c",2539,150,0,4.18381773670262e-10,1.12670993547673e-11,0
+"B_multi_episode_resets","1c",7451,250,0,1.56589408106811e-09,1.40531243037239e-11,0
+"A_obs_only_covariate_changes","2c",2539,150,0,2.10338413353384e-10,1.04284171934419e-11,0
+"B_multi_episode_resets","2c",7451,250,0,6.59468923913664e-10,1.71327350009249e-11,0

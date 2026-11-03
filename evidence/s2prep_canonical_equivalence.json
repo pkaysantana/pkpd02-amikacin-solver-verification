@@ -1,0 +1,209 @@
+{
+  "test": "s2prep_canonical_equivalence",
+  "verdict": "PASS",
+  "synthetic_only": true,
+  "seed": 20261103,
+  "tolerance": 1e-05,
+  "ode": {
+    "atol": 1e-12,
+    "rtol": 1e-12,
+    "method": "liblsoda"
+  },
+  "gates": {
+    "B_patient_level_rejections_match_independent_expectation_1c": true,
+    "B_patient_level_rejections_match_independent_expectation_2c": true,
+    "A_all_rows_pass": true,
+    "B_all_rows_pass": true,
+    "A_has_obs_only_changes": true,
+    "B_contains_reset_inside_and_at_end": true,
+    "inserted_rows_copy_existing_time_and_values": true,
+    "inserted_count_equals_independent_count": true,
+    "covariate_row_precedes_samples_at_same_time": true,
+    "canonical_form_invariant_to_same_time_row_order": true,
+    "conflicting_tied_covariates_rejected_not_resolved": true,
+    "episodes_of_a_patient_share_patient_eta": true,
+    "multi_episode_patients_present": true,
+    "per_episode_etas_refused_without_explicit_decision": true,
+    "duplicate_patient_eta_rows_refused": true,
+    "reset_tie_rules_and_values": true,
+    "no_DV_reference_in_event_library_code": true,
+    "S1r_hazard_replay_unguarded_disagrees_in_1c": true,
+    "S1r_hazard_replay_canonicalised_all_pass": true,
+    "C_episode_relative_timelines_pass": true,
+    "C_patient_level_offset_table_pass_all_gaps": true,
+    "C_results_invariant_to_arbitrary_offset_gap": true,
+    "C_multi_episode_patients_present": true,
+    "relative_clock_tie_rules": true,
+    "relative_clock_no_false_ties_across_episodes": true
+  },
+  "summary": [
+    {
+      "battery": "A_obs_only_covariate_changes",
+      "model": "1c",
+      "n_rows": 2539,
+      "n_patients": 150,
+      "n_fail": 0,
+      "max_abs_err": 4.18381773670262e-10,
+      "max_rel_err": 1.12670993547673e-11,
+      "min_Ac_ode": 0
+    },
+    {
+      "battery": "B_multi_episode_resets",
+      "model": "1c",
+      "n_rows": 7451,
+      "n_patients": 250,
+      "n_fail": 0,
+      "max_abs_err": 1.56589408106811e-09,
+      "max_rel_err": 1.40531243037239e-11,
+      "min_Ac_ode": 0
+    },
+    {
+      "battery": "A_obs_only_covariate_changes",
+      "model": "2c",
+      "n_rows": 2539,
+      "n_patients": 150,
+      "n_fail": 0,
+      "max_abs_err": 2.10338413353384e-10,
+      "max_rel_err": 1.04284171934419e-11,
+      "min_Ac_ode": 0
+    },
+    {
+      "battery": "B_multi_episode_resets",
+      "model": "2c",
+      "n_rows": 7451,
+      "n_patients": 250,
+      "n_fail": 0,
+      "max_abs_err": 6.59468923913664e-10,
+      "max_rel_err": 1.71327350009249e-11,
+      "min_Ac_ode": 0
+    }
+  ],
+  "battery_A": {
+    "n_patients": 150,
+    "obs_only_changes": 390,
+    "inserted_rows": 390
+  },
+  "battery_B": {
+    "n_patients": 250,
+    "reset_inside": 69,
+    "reset_at_end": 64,
+    "multi_episode_patients": 154
+  },
+  "unguarded_demonstration": [
+    {
+      "battery": "A",
+      "model": "1c",
+      "n": 2149,
+      "n_exceed": 0,
+      "max_abs": 4.4036596591468e-10,
+      "min_Ac": 0,
+      "_row": "A_unguarded 1c"
+    },
+    {
+      "battery": "B",
+      "model": "1c",
+      "n": 4546,
+      "n_exceed": 1794,
+      "max_abs": 243.809149349514,
+      "min_Ac": -4134.11813363675,
+      "_row": "B_unguarded_on_rejected_patients 1c"
+    },
+    {
+      "battery": "A",
+      "model": "2c",
+      "n": 2149,
+      "n_exceed": 0,
+      "max_abs": 2.8546054409162e-10,
+      "min_Ac": 0,
+      "_row": "A_unguarded 2c"
+    },
+    {
+      "battery": "B",
+      "model": "2c",
+      "n": 4546,
+      "n_exceed": 1794,
+      "max_abs": 208.638913812841,
+      "min_Ac": -3045.86357777944,
+      "_row": "B_unguarded_on_rejected_patients 2c"
+    }
+  ],
+  "reset_tie_cases": [
+    {
+      "case": "pre_before_reset_TAD_pos",
+      "expected": "pre_reset",
+      "classified": "pre_reset",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": 3.07061043258727e-11,
+      "quarantined": false,
+      "_row": "pre_before_reset_TAD_pos"
+    },
+    {
+      "case": "post_after_reset_TAD_zero",
+      "expected": "post_reset",
+      "classified": "post_reset",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": 0,
+      "quarantined": false,
+      "_row": "post_after_reset_TAD_zero"
+    },
+    {
+      "case": "indet_before_reset_TAD_zero",
+      "expected": "indeterminate",
+      "classified": "indeterminate",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": "NA",
+      "quarantined": true,
+      "_row": "indet_before_reset_TAD_zero"
+    },
+    {
+      "case": "indet_after_reset_TAD_pos",
+      "expected": "indeterminate",
+      "classified": "indeterminate",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": "NA",
+      "quarantined": true,
+      "_row": "indet_after_reset_TAD_pos"
+    },
+    {
+      "case": "indet_TAD_missing",
+      "expected": "indeterminate",
+      "classified": "indeterminate",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": "NA",
+      "quarantined": true,
+      "_row": "indet_TAD_missing"
+    },
+    {
+      "case": "pre_before_EVID3_TAD_pos",
+      "expected": "pre_reset",
+      "classified": "pre_reset",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": 3.07061043258727e-11,
+      "quarantined": false,
+      "_row": "pre_before_EVID3_TAD_pos"
+    },
+    {
+      "case": "post_after_EVID3_TAD_zero",
+      "expected": "post_reset",
+      "classified": "post_reset",
+      "classification_ok": true,
+      "placement_ok": true,
+      "value_ok": true,
+      "abs_err": 0,
+      "quarantined": false,
+      "_row": "post_after_EVID3_TAD_zero"
+    }
+  ]
+}

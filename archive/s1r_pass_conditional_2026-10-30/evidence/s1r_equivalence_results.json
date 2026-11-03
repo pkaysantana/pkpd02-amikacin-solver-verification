@@ -1,0 +1,436 @@
+{
+  "gate": "S-1r",
+  "verdict": "PASS",
+  "verdict_qualifier": "PASS_CONDITIONAL_ON_INPUT_CONTRACT",
+  "input_contract": {
+    "R-COV": "Every covariate change must be carried by a solver-restart row (EVID 1-4); observation-only carriage is rejected.",
+    "R-RESET": "No reset row (EVID 3/4) while an infusion is active or ending at the reset time; protocol semantics for that case are undecided and the wrapper refuses it.",
+    "tolerance": "Production atol/rtol must be set explicitly; nlmixr2 foceiControl defaults (atol 1e-6, rtol 1e-3) fail the gate."
+  },
+  "conditions": ["Pass is conditional on reviewer ratification of the input contract (R-COV, R-RESET).", "FOCEI inner (sensitivity) model accuracy is not tested here (no fitting); predOnly model only.", "Unguarded hazards remain in the installed rxode2 5.1.8 ODE pathway; see s1r_hazard_cases.csv."],
+  "hazard_cases": [
+    {
+      "model": "1c",
+      "ID": 2001,
+      "case": "H1_covariate_change_on_obs_row_only_0.001h_then_reverts",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2001 TIME 19.999: covariate change carried only by observation rows (R-COV) | ID 2001 TIME 20: covariate change carried only by observation rows (R-COV)",
+      "unguarded_n_rows": 5,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 0.000956760515270716,
+      "unguarded_min_Ac_mg": 0,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "1c",
+      "ID": 2002,
+      "case": "H2_covariate_change_on_obs_row_only_0.1h_then_reverts",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2002 TIME 19.9: covariate change carried only by observation rows (R-COV) | ID 2002 TIME 20: covariate change carried only by observation rows (R-COV)",
+      "unguarded_n_rows": 5,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 0.0945732155545382,
+      "unguarded_min_Ac_mg": 0,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "1c",
+      "ID": 2003,
+      "case": "H3_EVID4_reset_dose_inside_active_infusion",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2003 TIME 3: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 8,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 14.4178160693648,
+      "unguarded_min_Ac_mg": -225.949182582739,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "1c",
+      "ID": 2004,
+      "case": "H4_EVID3_reset_inside_active_infusion",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2004 TIME 3: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 6,
+      "unguarded_n_exceeding_gate": 1,
+      "unguarded_max_abs_err_mg_per_L": 8.07330545734865,
+      "unguarded_min_Ac_mg": -177.72709200714,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "1c",
+      "ID": 2005,
+      "case": "H5_EVID3_reset_exactly_at_infusion_end",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2005 TIME 6: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 5,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 8.84545650495514,
+      "unguarded_min_Ac_mg": -162.27112822691,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "1c",
+      "ID": 2006,
+      "case": "H6_EVID4_reset_dose_exactly_at_infusion_end",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2006 TIME 6: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 6,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 8.84545650496606,
+      "unguarded_min_Ac_mg": -17.527686765554,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "2c",
+      "ID": 2001,
+      "case": "H1_covariate_change_on_obs_row_only_0.001h_then_reverts",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2001 TIME 19.999: covariate change carried only by observation rows (R-COV) | ID 2001 TIME 20: covariate change carried only by observation rows (R-COV)",
+      "unguarded_n_rows": 5,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 0.0011398136013927,
+      "unguarded_min_Ac_mg": 0,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "2c",
+      "ID": 2002,
+      "case": "H2_covariate_change_on_obs_row_only_0.1h_then_reverts",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2002 TIME 19.9: covariate change carried only by observation rows (R-COV) | ID 2002 TIME 20: covariate change carried only by observation rows (R-COV)",
+      "unguarded_n_rows": 5,
+      "unguarded_n_exceeding_gate": 0,
+      "unguarded_max_abs_err_mg_per_L": 1.09254827407312e-11,
+      "unguarded_min_Ac_mg": 0,
+      "unguarded_disagrees_with_reference": false
+    },
+    {
+      "model": "2c",
+      "ID": 2003,
+      "case": "H3_EVID4_reset_dose_inside_active_infusion",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2003 TIME 3: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 8,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 14.1709228257809,
+      "unguarded_min_Ac_mg": -188.223221717378,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "2c",
+      "ID": 2004,
+      "case": "H4_EVID3_reset_inside_active_infusion",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2004 TIME 3: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 6,
+      "unguarded_n_exceeding_gate": 1,
+      "unguarded_max_abs_err_mg_per_L": 8.77693543548221,
+      "unguarded_min_Ac_mg": -150.279826377126,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "2c",
+      "ID": 2005,
+      "case": "H5_EVID3_reset_exactly_at_infusion_end",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2005 TIME 6: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 5,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 9.27191949694419,
+      "unguarded_min_Ac_mg": -132.295839706428,
+      "unguarded_disagrees_with_reference": true
+    },
+    {
+      "model": "2c",
+      "ID": 2006,
+      "case": "H6_EVID4_reset_dose_exactly_at_infusion_end",
+      "wrapper_rejects": true,
+      "rejection_reason": "ID 2006 TIME 6: reset while an infusion is active or ending at the reset time (R-RESET)",
+      "unguarded_n_rows": 6,
+      "unguarded_n_exceeding_gate": 2,
+      "unguarded_max_abs_err_mg_per_L": 9.27191949694413,
+      "unguarded_min_Ac_mg": -27.4727264813269,
+      "unguarded_disagrees_with_reference": true
+    }
+  ],
+  "synthetic_data_only": true,
+  "timestamp_utc": "2026-10-30 20:59:52 UTC",
+  "gating_checks": {
+    "pathway_inspection_script_passes": true,
+    "scenario_count_102_and_3177_points_per_model": true,
+    "all_points_pass_all_paths_primary_tol": true,
+    "all_amount_states_pass_Ac_and_Ap": true,
+    "covariate_step_amount_continuity": true,
+    "boundary_regression_all_pass": true,
+    "scenario_coverage_a_to_g": true,
+    "ode_paths_mutually_concordant": true,
+    "all_pathway_assertions_true": true,
+    "guard_checks_pass": true,
+    "hazard_inputs_rejected_by_wrapper": true
+  },
+  "tolerance_rule": {
+    "abs_mg_per_L": 1e-05,
+    "rel": 1e-06,
+    "reference": "C_ref (independent base-R matrix exponential)"
+  },
+  "primary_ode_settings": {
+    "atol": 1e-12,
+    "rtol": 1e-12,
+    "method": "liblsoda"
+  },
+  "production_tolerance_assessment": {
+    "candidate": {
+      "atol": 1e-10,
+      "rtol": 1e-10,
+      "method": "liblsoda"
+    },
+    "declared_before_run": true,
+    "margin_requirement": "max error <= 10% of allowance at every point",
+    "candidate_n_fail": 0,
+    "candidate_max_err_over_allowance": 0.00111831732288866,
+    "ADEQUATE": true,
+    "nlmixr2_default_tolerances_pass_gate": false
+  },
+  "n_scenarios": 102,
+  "n_boundary_cases": 21,
+  "points_per_model_scenario": {
+    "1c": 3177,
+    "2c": 3177
+  },
+  "points_per_model_boundary": {
+    "1c": 156,
+    "2c": 156
+  },
+  "summary": [
+    {
+      "model": "1c",
+      "path": "P1_plain_rxode2_ODE",
+      "suite": "boundary",
+      "n_points": 156,
+      "n_fail": 0,
+      "max_abs_err": 1.3574208423961e-10,
+      "max_rel_err": 4.04633921377293e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 2.45438513957197e-09,
+      "max_Ap_abs_err_mg": "NA"
+    },
+    {
+      "model": "2c",
+      "path": "P1_plain_rxode2_ODE",
+      "suite": "boundary",
+      "n_points": 156,
+      "n_fail": 0,
+      "max_abs_err": 1.83185022706311e-10,
+      "max_rel_err": 6.91784665986291e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 2.88758883471019e-09,
+      "max_Ap_abs_err_mg": 6.21042772763758e-10
+    },
+    {
+      "model": "1c",
+      "path": "P2_nlmixr2_ui_ODE",
+      "suite": "boundary",
+      "n_points": 156,
+      "n_fail": 0,
+      "max_abs_err": 1.43117517836799e-10,
+      "max_rel_err": 4.04635540016572e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 2.0343122741906e-09,
+      "max_Ap_abs_err_mg": "NA"
+    },
+    {
+      "model": "2c",
+      "path": "P2_nlmixr2_ui_ODE",
+      "suite": "boundary",
+      "n_points": 156,
+      "n_fail": 0,
+      "max_abs_err": 5.6878945997596e-11,
+      "max_rel_err": 6.91787183869613e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 9.91974502539961e-10,
+      "max_Ap_abs_err_mg": 4.89322360408551e-10
+    },
+    {
+      "model": "1c",
+      "path": "P3_nlmixr2_focei_predOnly_ODE",
+      "suite": "boundary",
+      "n_points": 156,
+      "n_fail": 0,
+      "max_abs_err": 2.81147549685556e-10,
+      "max_rel_err": 4.04635540016572e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 3.438572093728e-09,
+      "max_Ap_abs_err_mg": "NA"
+    },
+    {
+      "model": "2c",
+      "path": "P3_nlmixr2_focei_predOnly_ODE",
+      "suite": "boundary",
+      "n_points": 156,
+      "n_fail": 0,
+      "max_abs_err": 1.76342496160942e-10,
+      "max_rel_err": 6.91787183869613e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 1.67756297742017e-09,
+      "max_Ap_abs_err_mg": 5.75738567931694e-10
+    },
+    {
+      "model": "1c",
+      "path": "P1_plain_rxode2_ODE",
+      "suite": "scenario",
+      "n_points": 3177,
+      "n_fail": 0,
+      "max_abs_err": 8.19014189801237e-10,
+      "max_rel_err": 9.74411296227614e-12,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 1.36853941512527e-08,
+      "max_Ap_abs_err_mg": "NA"
+    },
+    {
+      "model": "2c",
+      "path": "P1_plain_rxode2_ODE",
+      "suite": "scenario",
+      "n_points": 3177,
+      "n_fail": 0,
+      "max_abs_err": 6.52732978778658e-10,
+      "max_rel_err": 9.70270601290332e-12,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 6.67569111101329e-09,
+      "max_Ap_abs_err_mg": 3.72278918803204e-09
+    },
+    {
+      "model": "1c",
+      "path": "P2_nlmixr2_ui_ODE",
+      "suite": "scenario",
+      "n_points": 3177,
+      "n_fail": 0,
+      "max_abs_err": 8.19014189801237e-10,
+      "max_rel_err": 1.16591857676601e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 1.36853941512527e-08,
+      "max_Ap_abs_err_mg": "NA"
+    },
+    {
+      "model": "2c",
+      "path": "P2_nlmixr2_ui_ODE",
+      "suite": "scenario",
+      "n_points": 3177,
+      "n_fail": 0,
+      "max_abs_err": 6.83030521031469e-10,
+      "max_rel_err": 1.00574834062192e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 6.6283973865211e-09,
+      "max_Ap_abs_err_mg": 4.42241798737086e-09
+    },
+    {
+      "model": "1c",
+      "path": "P3_nlmixr2_focei_predOnly_ODE",
+      "suite": "scenario",
+      "n_points": 3177,
+      "n_fail": 0,
+      "max_abs_err": 1.2446861319404e-09,
+      "max_rel_err": 1.1843016967172e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 2.07980974664679e-08,
+      "max_Ap_abs_err_mg": "NA"
+    },
+    {
+      "model": "2c",
+      "path": "P3_nlmixr2_focei_predOnly_ODE",
+      "suite": "scenario",
+      "n_points": 3177,
+      "n_fail": 0,
+      "max_abs_err": 7.36363858777622e-10,
+      "max_rel_err": 1.29944904674895e-11,
+      "n_amount_fail": 0,
+      "max_Ac_abs_err_mg": 7.30562987882877e-09,
+      "max_Ap_abs_err_mg": 4.49142589786788e-09
+    }
+  ],
+  "failing_cases": [],
+  "step_checks": {
+    "n": 2694,
+    "n_fail": 0,
+    "n_during_active_infusion": 454,
+    "max_Ac_abs_diff_mg": 1.94615950022126e-08,
+    "max_Ap_abs_diff_mg": 3.64184415957425e-09
+  },
+  "path_concordance": [
+    {
+      "model": "1c",
+      "comparison": "P1_plain_rxode2_ODE vs P2_nlmixr2_ui_ODE",
+      "n_points": 3333,
+      "max_abs_diff": 4.75068873129203e-10,
+      "n_exceeding_gate": 0
+    },
+    {
+      "model": "1c",
+      "comparison": "P1_plain_rxode2_ODE vs P3_nlmixr2_focei_predOnly_ODE",
+      "n_points": 3333,
+      "max_abs_diff": 4.42284431301232e-10,
+      "n_exceeding_gate": 0
+    },
+    {
+      "model": "2c",
+      "comparison": "P1_plain_rxode2_ODE vs P2_nlmixr2_ui_ODE",
+      "n_points": 3333,
+      "max_abs_diff": 4.74415173812304e-10,
+      "n_exceeding_gate": 0
+    },
+    {
+      "model": "2c",
+      "comparison": "P1_plain_rxode2_ODE vs P3_nlmixr2_focei_predOnly_ODE",
+      "n_points": 3333,
+      "max_abs_diff": 5.27094812241558e-10,
+      "n_exceeding_gate": 0
+    }
+  ],
+  "guard_checks": [
+    {
+      "check": "wrapper rejects tied rows with different covariates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "wrapper rejects AMT>0 with RATE=0 (T7 is preprocessing)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "wrapper rejects a linCmt() model",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "wrapper refuses covsInterpolation='nocb'",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "wrapper unaffected by options(rxode2.useLinCmt=TRUE)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "harness detects silent ODE->linCmt conversion (raw useLinCmt=TRUE fails gate)",
+      "pass": true,
+      "detail": "max abs 8.279e-03 mg/L"
+    },
+    {
+      "check": "harness detects NOCB (ODE with covsInterpolation='nocb' fails gate)",
+      "pass": true,
+      "detail": "max abs 8.279e-03 mg/L"
+    },
+    {
+      "check": "legacy linCmt() S-1 failure reproduces vs independent reference (informational)",
+      "pass": true,
+      "detail": "max abs 8.279e-03 mg/L"
+    }
+  ],
+  "archived_inputs_sha256": {
+    "events": "fdcf18283136aff40aff71809c4a50d0cf3e7b6647fe4d49eac78166fa1a2570",
+    "individual_etas": "d0f67cbd641312aa6d8a65ea2ac73a925867d07105bc668163fda0b9311a3c6a"
+  },
+  "event_tables_identical_to_failed_S1": true
+}

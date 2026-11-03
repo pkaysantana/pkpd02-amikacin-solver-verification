@@ -1,0 +1,5 @@
+"model","route","n","n_exceed","max_abs"
+"1c","unguarded_raw",10,4,0.0945732155545382
+"1c","canonicalised",14,0,4.36983782492462e-11
+"2c","unguarded_raw",10,2,0.0011398136013927
+"2c","canonicalised",14,0,3.60538265908872e-11

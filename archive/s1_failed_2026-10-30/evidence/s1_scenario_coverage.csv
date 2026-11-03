@@ -1,0 +1,5 @@
+"model","case","a_two_infusions","b_step_outside_infusion","c_step_inside_infusion","d_obs_before_after_each_step","e_sample_dose_tie","f_episode_reset","g_nonzero_Ac_at_all_steps","g_nonzero_Ap_at_all_steps","g_min_Ac_left","g_min_Ap_left"
+"1c","canonical_tie_sample_first",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,NA,317.676594004848,0
+"1c","canonical_tie_dose_first",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,NA,317.676594004848,0
+"2c","canonical_tie_sample_first",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,238.718291771313,70.1603666742244
+"2c","canonical_tie_dose_first",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,238.718291771313,70.1603666742244

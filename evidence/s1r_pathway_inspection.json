@@ -1,0 +1,134 @@
+{
+  "gate": "S-1r pathway inspection",
+  "versions": {
+    "rxode2": "5.1.8",
+    "nlmixr2est": "7.2.1",
+    "rxode2lincmt": "0.1.0"
+  },
+  "useLinCmt": {
+    "rxSolve_rxUi_formals_default": "getOption(\"rxode2.useLinCmt\", FALSE)",
+    "global_option_rxode2.useLinCmt": "NULL",
+    "explicit_FALSE_accepted": true,
+    "nlmixr2est_functions_referencing_useLinCmt": [],
+    "nlmixr2_foceiControl_default_rxControl": {
+      "atol": 1e-06,
+      "rtol": 0.001,
+      "atolSens": 1e-06,
+      "rtolSens": 0.001,
+      "method": 2,
+      "covsInterpolation": 1
+    }
+  },
+  "compiled_models": {
+    "1c": {
+      "simulationModel": {
+        "linCmt_flag": -100,
+        "states": "Ac",
+        "norm_text_contains_linCmt": false
+      },
+      "foceiInner": {
+        "linCmt_flag": -100,
+        "states": ["Ac", "rx__sens_Ac_BY_ETA_1___", "rx__sens_Ac_BY_ETA_2___"],
+        "norm_text_contains_linCmt": false
+      },
+      "foceiPredOnly": {
+        "linCmt_flag": -100,
+        "states": "Ac",
+        "norm_text_contains_linCmt": false
+      },
+      "foceiPredNoLhs": {
+        "linCmt_flag": -100,
+        "states": "Ac",
+        "norm_text_contains_linCmt": false
+      }
+    },
+    "2c": {
+      "simulationModel": {
+        "linCmt_flag": -100,
+        "states": ["Ac", "Ap"],
+        "norm_text_contains_linCmt": false
+      },
+      "foceiInner": {
+        "linCmt_flag": -100,
+        "states": ["Ac", "Ap", "rx__sens_Ac_BY_ETA_1___", "rx__sens_Ap_BY_ETA_1___", "rx__sens_Ac_BY_ETA_2___", "rx__sens_Ap_BY_ETA_2___"],
+        "norm_text_contains_linCmt": false
+      },
+      "foceiPredOnly": {
+        "linCmt_flag": -100,
+        "states": ["Ac", "Ap"],
+        "norm_text_contains_linCmt": false
+      },
+      "foceiPredNoLhs": {
+        "linCmt_flag": -100,
+        "states": ["Ac", "Ap"],
+        "norm_text_contains_linCmt": false
+      }
+    }
+  },
+  "reference_flag_for_genuine_linCmt_model": 1,
+  "solve_behaviour": {
+    "default": {
+      "linCmt_flag": -100,
+      "states": "Ac",
+      "gate_pass_vs_independent_reference": true,
+      "max_abs_vs_reference": 2.16694218124758e-10
+    },
+    "explicit_FALSE": {
+      "linCmt_flag": -100,
+      "states": "Ac",
+      "gate_pass_vs_independent_reference": true,
+      "max_abs_vs_reference": 2.16694218124758e-10
+    },
+    "explicit_TRUE": {
+      "linCmt_flag": 1,
+      "states": "central",
+      "gate_pass_vs_independent_reference": false,
+      "max_abs_vs_reference": 0.00827894996005796
+    },
+    "option_TRUE_default_arg": {
+      "linCmt_flag": 1,
+      "states": "central",
+      "gate_pass_vs_independent_reference": false,
+      "max_abs_vs_reference": 0.00827894996005796
+    },
+    "option_TRUE_explicit_FALSE": {
+      "linCmt_flag": -100,
+      "states": "Ac",
+      "gate_pass_vs_independent_reference": true,
+      "max_abs_vs_reference": 2.16694218124758e-10
+    },
+    "option_TRUE_via_guarded_wrapper": {
+      "pathway_checks": {
+        "no_linCmt_flag": true,
+        "states_are_explicit_amounts": true,
+        "useLinCmt_recorded_FALSE_if_ui": true,
+        "locf_recorded": true,
+        "atol_recorded": true,
+        "rtol_recorded": true,
+        "method_recorded": true
+      },
+      "gate_pass_vs_independent_reference": true,
+      "max_abs_vs_reference": 2.16694218124758e-10
+    }
+  },
+  "guarded_wrapper_pathway_checks": {
+    "no_linCmt_flag": true,
+    "states_are_explicit_amounts": true,
+    "useLinCmt_recorded_FALSE_if_ui": true,
+    "locf_recorded": true,
+    "atol_recorded": true,
+    "rtol_recorded": true,
+    "method_recorded": true
+  },
+  "checks": {
+    "default_is_explicit_ODE": true,
+    "explicit_FALSE_is_explicit_ODE": true,
+    "explicit_FALSE_overrides_global_option": true,
+    "guarded_wrapper_immune_to_global_option": true,
+    "all_compiled_models_free_of_linCmt": true,
+    "nlmixr2est_never_references_useLinCmt": true,
+    "silent_conversion_hazard_demonstrated": true
+  },
+  "pass": true,
+  "notes": ["silent_conversion_hazard_demonstrated is a hazard demonstration (useLinCmt=TRUE converts the ODE and reproduces the S-1 error); it must be TRUE for the guard to be meaningful.", "nlmixr2est fitting was NOT run; the compiled FOCEI models are the ones fit routines use. The synthetic fit-schema stage must re-assert the pathway from a fit object."]
+}

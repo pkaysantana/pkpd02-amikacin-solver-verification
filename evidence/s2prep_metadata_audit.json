@@ -1,0 +1,235 @@
+{
+  "public_release_redaction": {
+    "statement": "This is a redacted public copy, not byte-identical to the file tests/s2prep_metadata_audit.R wrote. Only coincident_events.sample_dose_ties_detail was changed; every other value is as originally written.",
+    "sha256_of_file_as_originally_written": "c90b30a1d369113fec3b9d771f9b4a9c800e338d03040485e42d3e5847f6a08f",
+    "reason": "The removed records held a pseudonymous patient identifier with episode number and time from the source dataset; they are not needed for any result described in this repository.",
+    "regeneration": "Running tests/s2prep_metadata_audit.R with the source workbook recreates the unredacted file locally."
+  },
+  "audit": "S-2 prep metadata-only feasibility audit",
+  "timestamp_utc": "2026-10-30 21:30:22 UTC",
+  "audit_trail": {
+    "source_file": "Amikacin_Data_File.xlsx",
+    "sha256": "521daef9e7d753419006259ed15e3ac4f26a1345c290c79c1cacf42e11c767cb",
+    "sha256_matches_protocol": true,
+    "columns_loaded": ["#ID", "TIME", "TAD", "EVID", "AMT", "RATE", "AJBW", "CRCA"],
+    "DV_column_loaded": false,
+    "other_columns_skipped_at_read": ["DV", "SEX", "AGE", "WT", "IBW", "HT", "SCREAT", "CRCL"],
+    "n_rows_loaded": 2308,
+    "nonnumeric_token_counts": {
+      "#ID": 0,
+      "TIME": 0,
+      "TAD": 0,
+      "EVID": 0,
+      "AMT": 0,
+      "RATE": 0,
+      "AJBW": 0,
+      "CRCA": 0
+    },
+    "statement": "No concentration (DV) value was read, printed, summarised or used; no model was fitted; no forecast target was constructed."
+  },
+  "structure": {
+    "rows": 2308,
+    "patients": 124,
+    "episodes": 148,
+    "evid_counts": {
+      "0": 684,
+      "1": 1600,
+      "4": 24
+    },
+    "patient_rows_contiguous": true,
+    "time_decreases_within_episode": 0,
+    "time_decreases_across_rows_of_a_patient": 24,
+    "reset_rows_with_TIME_zero": 24,
+    "first_row_TIME_zero_patients": 124,
+    "TIME_is_episode_relative": true,
+    "na_counts": {
+      "TIME": 0,
+      "TAD": 0,
+      "CRCA": 0,
+      "AJBW": 0
+    },
+    "first_row_of_patient_is_reset": 0,
+    "dose_rows_with_nonpositive_or_missing_amt": 0,
+    "EVID3_rows": 0,
+    "duration_rules": {
+      "as_recorded": 1618,
+      "T7_RATE0_half_hour": 6
+    },
+    "recorded_duration_outside_0.45_0.55h": 579,
+    "RATE0_positive_dose_rows": 6,
+    "RATE0_patients": 46
+  },
+  "R_COV": {
+    "covariate_change_groups": 24,
+    "carried_by_restart_row": 22,
+    "obs_only_changes": 2,
+    "patients_with_obs_only_change": 2,
+    "episodes_with_obs_only_change": 2,
+    "conflicting_tied_covariates": 0,
+    "patients_conflicting_ties": 0,
+    "na_covariate_groups": 0
+  },
+  "coincident_events": {
+    "time_groups_with_multiple_rows": 4,
+    "sample_and_dose": 2,
+    "dose_and_dose": 2,
+    "sample_and_sample": 0,
+    "reset_and_sample": 0,
+    "reset_and_other_dose": 0,
+    "exact_duplicate_row_groups": 2,
+    "patients_any": 4,
+    "sample_dose_ties_TAD_gt0": null,
+    "sample_dose_ties_detail": {
+      "redacted_for_public_release": true,
+      "n_entries_removed": 2,
+      "removed_fields": ["ID", "EPISODE", "TIME", "evids_in_file_order", "TAD_of_sample", "file_order_sample_first", "TAD_gt0_but_dose_listed_first"],
+      "retained_aggregates": {
+        "all_entries_listed_sample_before_dose_in_file_order": true,
+        "any_entry_with_TAD_gt0_but_dose_listed_first": false
+      }
+    }
+  },
+  "R_RESET": {
+    "reset_rows": 24,
+    "EVID3": 0,
+    "EVID4": 24,
+    "R_RESET_assessable_from_recorded_times": false,
+    "reason_not_assessable": "TIME is episode-relative (all resets at TIME 0); wall-clock gap between episodes is not recorded",
+    "determinately_not_active_at_reset": 23,
+    "indeterminate_possible_interruption": 1,
+    "indeterminate_under_recorded_only_durations": 1,
+    "patients_with_indeterminate": 1,
+    "previous_episode_ends_with_a_dose_record": 1,
+    "reset_tied_samples_episode_relative": 0,
+    "reset_tied_by_class": {
+      "pre_reset": 0,
+      "post_reset": 0,
+      "indeterminate": 0
+    },
+    "patients_with_reset_tied_samples": 0,
+    "note": "An episode-relative clock means an earlier infusion can never be tied to the next episode's clock; the representation (not the data) decides whether R-RESET can arise."
+  },
+  "sanctioned_pipeline_on_real_event_structure": {
+    "naive_patient_level_table_as_recorded": {
+      "R_COV": 6,
+      "R_RESET": 0,
+      "tied_rows_conflicting_covariates": 17,
+      "time_not_monotone": 19,
+      "other": 0,
+      "total": 42
+    },
+    "episode_timelines": {
+      "n": 148,
+      "quarantined_observations": 0,
+      "canonicalisation_inserted_rows": 2,
+      "canonicalisation_rejected_groups": 0,
+      "validator": {
+        "R_COV": 0,
+        "R_RESET": 0,
+        "tied_rows_conflicting_covariates": 0,
+        "time_not_monotone": 0,
+        "other": 0,
+        "total": 0
+      },
+      "patients_with_multiple_episodes": 19
+    },
+    "patient_level_offset_table_gap1h": {
+      "rows": 2310,
+      "canonicalisation_inserted_rows": 2,
+      "canonicalisation_rejected_groups": 0,
+      "validator": {
+        "R_COV": 0,
+        "R_RESET": 0,
+        "tied_rows_conflicting_covariates": 0,
+        "time_not_monotone": 0,
+        "other": 0,
+        "total": 0
+      },
+      "note": "episode offsets are a representation device with no clinical meaning; invariance to the gap is verified in tests/s2prep_canonical_equivalence.R"
+    }
+  },
+  "eligibility_reproduction": {
+    "one_prior": {
+      "episodes": 120,
+      "patients": 101
+    },
+    "two_prior": {
+      "episodes": 93,
+      "patients": 79
+    },
+    "v11_preflight": {
+      "one_prior": {
+        "episodes": 120,
+        "patients": 101
+      },
+      "two_prior": {
+        "episodes": 93,
+        "patients": 79
+      }
+    },
+    "matches_v11_one_prior": true,
+    "matches_v11_two_prior": true,
+    "preflight_one_prior_example_rows_reproduced": 5,
+    "preflight_one_prior_example_rows_total": 5
+  },
+  "eligibility_scenarios": {
+    "S0_as_recorded": {
+      "one": {
+        "episodes": 120,
+        "patients": 101
+      },
+      "two": {
+        "episodes": 93,
+        "patients": 79
+      }
+    },
+    "S1_quarantine_indeterminate_reset_tied_samples": {
+      "one": {
+        "episodes": 120,
+        "patients": 101
+      },
+      "two": {
+        "episodes": 93,
+        "patients": 79
+      },
+      "quarantined_rows": 0
+    },
+    "S2_exclude_episodes_with_indeterminate_possible_interruption_if_resets_were_treated_as_unsafe": {
+      "one": {
+        "episodes": 120,
+        "patients": 101
+      },
+      "two": {
+        "episodes": 93,
+        "patients": 79
+      },
+      "excluded_episodes": 1
+    },
+    "S3_exclude_episodes_with_obs_only_covariate_change_if_not_canonicalised": {
+      "one": {
+        "episodes": 118,
+        "patients": 100
+      },
+      "two": {
+        "episodes": 91,
+        "patients": 78
+      },
+      "excluded_episodes": 2
+    },
+    "first_eligible_episode_per_patient_S0_one_prior": {
+      "episodes": 101,
+      "patients": 101
+    }
+  },
+  "forecasts_touching_flagged_events": {
+    "primary_one_prior_forecasts_whose_origin_or_target_is_a_quarantined_sample": 0,
+    "primary_one_prior_episodes_with_obs_only_covariate_change": 2,
+    "primary_one_prior_episodes_followed_by_a_reset_with_indeterminate_interruption": 0
+  },
+  "script_sha256": "e77a67e3bd3d54ae80cfcca5a10bec3ce50675a433ac2a88f2eeeaa96f48f99a",
+  "library_sha256": {
+    "events": "1c7cd53aae1e1600ccbd121dba5f0e551c3619862c25fd34b8d1b609acc5a852",
+    "solve": "876ba4f9c1869e9426f7a1ea39c8a48e0d99fc224f39e2ba7f74c7b93e378390"
+  },
+  "limitations": ["Observation validity (numeric positive DV) not assessed: DV never read; eligibility counts are upper bounds on that dimension.", "Effective infusion durations apply v1.1 T7/T8; recorded-only sensitivity reported for R-RESET.", "SEX/AGE/WT/IBW/HT/SCREAT/CRCL not read; covariate-change analysis covers only the model covariates CRCA and AJBW."]
+}

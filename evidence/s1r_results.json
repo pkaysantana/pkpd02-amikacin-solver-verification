@@ -1,0 +1,153 @@
+{
+  "gate": "S-1r",
+  "overall_verdict": "PASS_CONDITIONAL_ON_INPUT_CONTRACT",
+  "exit_codes": {
+    "reference_selftest": 0,
+    "pathway_inspection": 0,
+    "ode_equivalence": 0
+  },
+  "failed_S1_artefacts_unmodified": {
+    "archive_manifest_verified": true,
+    "in_place_originals_match_archive": true,
+    "manifest_sha256": "10a27cbd7ea53873733ae0af4cc9a58fa77ae3de81fb12f62973ffa93aa92759"
+  },
+  "equivalence_verdict": "PASS",
+  "conditions": ["Pass is conditional on reviewer ratification of the input contract (R-COV, R-RESET).", "FOCEI inner (sensitivity) model accuracy is not tested here (no fitting); predOnly model only.", "Unguarded hazards remain in the installed rxode2 5.1.8 ODE pathway; see s1r_hazard_cases.csv."],
+  "input_contract": {
+    "R-COV": "Every covariate change must be carried by a solver-restart row (EVID 1-4); observation-only carriage is rejected.",
+    "R-RESET": "No reset row (EVID 3/4) while an infusion is active or ending at the reset time; protocol semantics for that case are undecided and the wrapper refuses it.",
+    "tolerance": "Production atol/rtol must be set explicitly; nlmixr2 foceiControl defaults (atol 1e-6, rtol 1e-3) fail the gate."
+  },
+  "tolerances": {
+    "acceptance": {
+      "abs_mg_per_L": 1e-05,
+      "rel": 1e-06,
+      "reference": "C_ref (independent base-R matrix exponential)"
+    },
+    "primary_ode": {
+      "atol": 1e-12,
+      "rtol": 1e-12,
+      "method": "liblsoda"
+    },
+    "production_assessment": {
+      "candidate": {
+        "atol": 1e-10,
+        "rtol": 1e-10,
+        "method": "liblsoda"
+      },
+      "declared_before_run": true,
+      "margin_requirement": "max error <= 10% of allowance at every point",
+      "candidate_n_fail": 0,
+      "candidate_max_err_over_allowance": 0.00111831732288866,
+      "ADEQUATE": true,
+      "nlmixr2_default_tolerances_pass_gate": false
+    }
+  },
+  "seeds": {
+    "failed_S1_scenario_generator": 20261101,
+    "selftest": 20261102,
+    "note": "S-1r uses the archived event tables (SHA-verified); no random generation in S-1r scripts"
+  },
+  "data_scope": "synthetic only; no Strathclyde data, no fitting, no forecast targets",
+  "package_versions": {
+    "rxode2": "5.1.8",
+    "nlmixr2est": "7.2.1",
+    "nlmixr2": "7.0.1",
+    "lotri": "1.0.5",
+    "dparser": "1.3.1.14",
+    "rxode2lincmt": "0.1.0",
+    "symengine": "0.2.14",
+    "PreciseSums": "0.7",
+    "n1qn1": "6.0.1.14",
+    "lbfgsb3c": "2026.3.5",
+    "expm": "1.0.1",
+    "jsonlite": "2.0.0",
+    "digest": "0.6.39"
+  },
+  "renv_lock_entries": {
+    "rxode2": {
+      "Version": "5.1.8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "nlmixr2est": {
+      "Version": "7.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "nlmixr2": {
+      "Version": "7.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "lotri": {
+      "Version": "1.0.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "dparser": {
+      "Version": "1.3.1-14",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rxode2lincmt": {
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "symengine": {
+      "Version": "0.2.14",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "PreciseSums": {
+      "Version": "0.7",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "n1qn1": {
+      "Version": "6.0.1-14",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "lbfgsb3c": {
+      "Version": "2026-3.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "expm": {
+      "Version": "1.0-1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "jsonlite": {
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "digest": {
+      "Version": "0.6.39",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    }
+  },
+  "R_version": "R version 4.5.2 (2025-10-31)",
+  "platform": "x86_64-pc-linux-gnu",
+  "timestamp_utc": "2026-11-03 17:25:15 UTC",
+  "file_sha256": {
+    "R/pkpd02_events.R": "1c7cd53aae1e1600ccbd121dba5f0e551c3619862c25fd34b8d1b609acc5a852",
+    "R/pkpd02_ode_models.R": "e3f75ba284474a57f809c824702c439f52a746bb2f1065ba08b3ed83faa846b9",
+    "R/pkpd02_reference_matexp.R": "17d607e637e7a85dd930586b470b422045f4524eaef1b1b73ce914c66b859595",
+    "R/pkpd02_solve.R": "876ba4f9c1869e9426f7a1ea39c8a48e0d99fc224f39e2ba7f74c7b93e378390",
+    "R/pkpd02_source_reader.R": "d5bc8ec1edd0a9009e05d68b6a0d93049e07d382a6054159a39e677b06ef44ba",
+    "tests/s1r_ode_equivalence.R": "d55456a53ce4e9764bd2b175be0418e8c4e55f1b799372d0037ec35a7ea5304d",
+    "tests/s1r_pathway_inspection.R": "4348e6c1827ba1cf6302578ff6c8d2afd9a59f8ad741d52aa0e1098ec68fe7de",
+    "tests/s1r_reference_selftest.R": "6a9308a9b45a3d22c64796f4e7d5c0f5998f39998c523c9b873b300a62adbd5c",
+    "tests/s1r_run_all.R": "b648861d5aa1e20c80504e536d68197e5838865d28932e1dbd5f14991e091166",
+    "protocol/PKPD02_v12_amendment_DRAFT.md": "c96f532c427ea21db927c1d83958ab0739fea825fb9c82d8f548216490fdfd67",
+    "reports/S1r_verification_report.md": "a936a8b2a468955f44d90bf078a4b0428f4f4d8d6be1b1712382405991e4e71a",
+    "renv.lock": "c2fc9a550b41b6d7c086a0baed348147716ec0842f9f12bf283a1c4552ab0160",
+    "protocol/PKPD02_PreSpecified_Exploratory_Protocol_v0_9.md": "41153a5007547ae00938229d1b3acd9c140b6d82973ba6b62b74b41a68536920",
+    "protocol/PKPD02_v11_addendum.md": "10afc03f2321990cd24541d792517ad83072d9b476bec76caba57c707fc720e8"
+  }
+}

@@ -1,0 +1,5 @@
+"model","ID","a_two_infusions","b_step_outside_infusion","c_step_inside_infusion","d_samples_before_after_each_step","e_sample_dose_tie","f_episode_reset","g_nonzero_Ac_at_steps","g_nonzero_Ap_at_steps"
+"1c",1,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,NA
+"1c",2,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,NA
+"2c",1,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+"2c",2,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE

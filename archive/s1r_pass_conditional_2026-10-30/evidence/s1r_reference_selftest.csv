@@ -1,0 +1,7 @@
+"check","max_abs_err","tol","pass"
+"pade_expm vs expm::expm (200 random 3x3, rel)",7.56123887629763e-13,1e-12,TRUE
+"1C single infusion vs closed form (mg/L)",3.46389583683049e-14,1e-12,TRUE
+"2C single infusion vs closed form (mg/L)",3.99680288865056e-14,1e-11,TRUE
+"2C CL=0 mass balance Ac+Ap == delivered (mg)",8.58335624798201e-12,1e-09,TRUE
+"no-op covariate rows do not change result (2C)",9.43245481721533e-13,1e-12,TRUE
+"EVID=3 reset cancels active infusion (cp after reset == 0)",0,0,TRUE
