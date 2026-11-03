@@ -31,18 +31,36 @@ The proposed comparison (`protocol/PKPD02_PreSpecified_Exploratory_Protocol_v0_9
 Both structures use intravenous zero-order infusion input $R(t)$ (mg/h), clearance driven by renal function (`CRCA`, mL/min) and volume by adjusted body weight (`AJBW`, kg), with covariates piecewise-constant in time (addendum v1.1, §2).
 
 **Model A, one compartment**
-$$\mathrm{CL}_i(t)=\theta_{CL}\frac{\mathrm{CRCA}_i(t)}{100}e^{\eta_{CL,i}},\quad V_i(t)=\theta_V\frac{\mathrm{AJBW}_i(t)}{70}e^{\eta_{V,i}},\quad \frac{dA_c}{dt}=R(t)-\frac{\mathrm{CL}}{V}A_c,\quad f=\frac{A_c}{V}$$
+
+$$
+\mathrm{CL}_i(t)=\theta_{CL}\frac{\mathrm{CRCA}_i(t)}{100}e^{\eta_{CL,i}},\qquad V_i(t)=\theta_V\frac{\mathrm{AJBW}_i(t)}{70}e^{\eta_{V,i}}
+$$
+
+$$
+\frac{dA_c}{dt}=R(t)-\frac{\mathrm{CL}}{V}A_c,\qquad f=\frac{A_c}{V}
+$$
 
 **Model B, two compartments**
-$$\frac{dA_c}{dt}=R(t)-\frac{\mathrm{CL}}{V_1}A_c-Q\Big(\frac{A_c}{V_1}-\frac{A_p}{V_2}\Big),\qquad \frac{dA_p}{dt}=Q\Big(\frac{A_c}{V_1}-\frac{A_p}{V_2}\Big),\qquad f=\frac{A_c}{V_1}$$
+
+$$
+\frac{dA_c}{dt}=R(t)-\frac{\mathrm{CL}}{V_1}A_c-Q\Big(\frac{A_c}{V_1}-\frac{A_p}{V_2}\Big),\qquad f=\frac{A_c}{V_1}
+$$
+
+$$
+\frac{dA_p}{dt}=Q\Big(\frac{A_c}{V_1}-\frac{A_p}{V_2}\Big)
+$$
 
 with $V_1,V_2\propto \mathrm{AJBW}/70$ and between-patient variability on CL and the central volume only. Amounts are zero at each episode reset. The residual model is the variance-additive `combined2`, $v(f)=\sigma_{add}^2+\sigma_{prop}^2 f^2$, identical for both arms.
 
 **Endpoint.** For observed target $y$ and central 90 % limits $L,U$,
-$$\mathrm{IS}_{0.10}(L,U;y)=(U-L)+20\,(L-y)\,\mathbb{1}(y<L)+20\,(y-U)\,\mathbb{1}(y>U),$$
-a proper scoring rule (Gneiting & Raftery, 2007). The primary contrast is $\Delta_i=\mathrm{IS}_{B,i}-\mathrm{IS}_{A,i}$ per patient.
 
-**What the verification covers.** An amount-based ODE (explicit states `Ac`, `Ap`) is compared with an independent base-R solver, a per-interval exact solution by Padé scaling-and-squaring matrix exponential (`R/pkpd02_reference_matexp.R`), itself checked against closed-form 1C/2C solutions and `expm::expm`. The rule, fixed before the runs, is $|C_{test}-C_{ref}|\le\max(10^{-5}\,\mathrm{mg/L},\,10^{-6}|C_{ref}|)$ at every output row, with amounts checked the same way. Amounts, not concentrations, are carried across covariate changes. Two input patterns the unguarded ODE mishandles (a covariate change carried only by an observation row; a reset during or exactly at the end of an infusion) are canonicalised or rejected by a guard. **Identifiability and fit behaviour are not investigated**: no model has been fitted.
+$$
+\mathrm{IS}_{0.10}(L,U;y)=(U-L)+20(L-y)\mathbb{1}(y \lt L)+20(y-U)\mathbb{1}(y \gt U),
+$$
+
+a proper scoring rule (Gneiting & Raftery, 2007). The primary contrast is $`\Delta_i=\mathrm{IS}_{B,i}-\mathrm{IS}_{A,i}`$ per patient.
+
+**What the verification covers.** An amount-based ODE (explicit states `Ac`, `Ap`) is compared with an independent base-R solver, a per-interval exact solution by Padé scaling-and-squaring matrix exponential (`R/pkpd02_reference_matexp.R`), itself checked against closed-form 1C/2C solutions and `expm::expm`. The rule, fixed before the runs, is $`|C_{test}-C_{ref}|\le\max(10^{-5}\,\mathrm{mg/L},\,10^{-6}|C_{ref}|)`$ at every output row, with amounts checked the same way. Amounts, not concentrations, are carried across covariate changes. Two input patterns the unguarded ODE mishandles (a covariate change carried only by an observation row; a reset during or exactly at the end of an infusion) are canonicalised or rejected by a guard. **Identifiability and fit behaviour are not investigated**: no model has been fitted.
 
 ## 3. Verification status
 
